@@ -11,7 +11,6 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "airbnb:recommended",
         "plugin:react/recommended"
     ],
     "settings": {
@@ -23,7 +22,6 @@ module.exports = {
                 "flowVersion": "0.53"
         },
         "propWrapperFunctions": [
-            // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
             "forbidExtraProps",
             {"property": "freeze", "object": "Object"},
             {"property": "myFavoriteWrapper"}

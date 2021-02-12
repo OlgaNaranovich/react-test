@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { createStyles } from '@material-ui/core';
+import {createStyles, Theme} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { useTheme } from '@material-ui/core/styles';
 
-const useStyles = ({palette}) => createStyles({
+const useStyles = ({palette}: Theme) => createStyles({
 	root: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -12,7 +12,7 @@ const useStyles = ({palette}) => createStyles({
 	},
 });
 
-const BasicTextFields = () => {
+const FormComponent = () => {
 	const theme = useTheme();
 	const classes = useStyles(theme);
 
@@ -23,4 +23,4 @@ const BasicTextFields = () => {
 	);
 };
 
-export default BasicTextFields;
+export default FormComponent;

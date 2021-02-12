@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Container from '@material-ui/core/Container';
-import FormComponent from './components/Form/Form';
-import './styles/main.css';
+import FormComponent from './components/Form';
 
 const App = () => {
 	return (
