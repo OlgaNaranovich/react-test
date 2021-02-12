@@ -1,11 +1,19 @@
 import * as React from 'react';
 import Container from '@material-ui/core/Container';
 import FormComponent from './components/Form';
+import TodoList from './components/TodoList';
+import useTodoState from './useTodoState';
 
 const App = () => {
+	const {todo, addTodo, editTodo, deleteTodo} = useTodoState();
+
 	return (
-		<Container maxWidth="sm">
-			<FormComponent/>
+		<Container maxWidth="lg">
+			<FormComponent saveTodo={addTodo}/>
+			<TodoList
+				todo={todo}
+				editTodo={editTodo}
+				deleteTodo={deleteTodo}/>
 		</Container>
 	);
 };

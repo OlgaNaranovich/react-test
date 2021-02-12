@@ -45,6 +45,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'React TodoList',
             template: path.resolve(__dirname, './src/template.html'),
+            favicon: './src/favicon.png',
             filename: 'index.html',
         }),
     ],
