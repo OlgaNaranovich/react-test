@@ -7,7 +7,7 @@
     "start": "npm run lint & webpack serve",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +27,7 @@
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "html-webpack-plugin": "^5.0.0",
     "ts-loader": "^8.0.17",

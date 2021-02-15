@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {makeStyles, createStyles} from '@material-ui/core/styles';
+import {makeStyles, createStyles, useTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {useTheme} from '@material-ui/core/styles';
 
 interface ISaveTodoList {
 	saveTodo: Function;
@@ -36,7 +35,7 @@ const FormComponent = (props: ISaveTodoList) => {
 
 	const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		saveTodo(value);
+		if (value) saveTodo(value);
 		reset();
 	}
 	return (

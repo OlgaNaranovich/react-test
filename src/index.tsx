@@ -5,8 +5,8 @@ import customTheme from './styles/CustomeTheme';
 import App from './App';
 
 ReactDOM.render(
-    <ThemeProvider theme={customTheme}>
-        <App />
-    </ThemeProvider>,
-    document.querySelector('#root'),
+	<ThemeProvider theme={customTheme}>
+		<App />
+	</ThemeProvider>,
+	document.querySelector('#root'),
 );
