@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import {makeStyles, createStyles, Theme} from '@material-ui/core';
+import * as React from 'react';
+import {useState} from 'react';
+import {makeStyles, createStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {useTheme} from '@material-ui/core/styles';
 
@@ -7,12 +8,11 @@ interface ISaveTodoList {
 	saveTodo: Function;
 }
 
-const useStyles = makeStyles(({palette}: Theme) =>
+const useStyles = makeStyles(() =>
 	createStyles({
 		root: {
 			display: 'flex',
 			flexDirection: 'column',
-			backgroundColor: palette.background.default,
 			'& label, & input': {
 				paddingLeft: '20px'
 			},

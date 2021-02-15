@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import * as React from 'react';
+import {useState} from 'react';
+// @ts-ignore
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -17,6 +19,8 @@ interface ITodoList {
     editTodo: Function;
     deleteTodo: Function;
 }
+
+const initialChecked: number[] = [];
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -46,9 +50,9 @@ const TodoList = (props: ITodoList) => {
     const {todo, editTodo, deleteTodo} = props;
     const classes = useStyles();
 
-    const [checked, setChecked] = useState([]);
+    const [checked, setChecked] = useState(initialChecked);
     const [editValue, setEditValue] = useState('');
-    const [editStatus, setEditStatus] = useState(todo.map((item, i) => i = false));
+    const [editStatus, setEditStatus] = useState(todo.map(() => false));
 
 
     const handleToggle = (value: number) => () => {
@@ -64,7 +68,7 @@ const TodoList = (props: ITodoList) => {
 
     const saveChanges = (newValue: string, todoIndex: number) => {
         editTodo(newValue, todoIndex);
-        setEditStatus(changeEditStatus(todoIndex));
+        setEditStatus(todo.map(() => false));
 
     }
 
@@ -73,9 +77,7 @@ const TodoList = (props: ITodoList) => {
     };
 
     const changeEditStatus = (index: number) => {
-        const state = [...editStatus];
-        state[index] = !state[index];
-        return state;
+        return [...editStatus].map((item, i) => i === index);
     };
 
     const editItem = (todoValue: string, todoIndex: number) => {
