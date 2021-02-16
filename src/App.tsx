@@ -9,6 +9,7 @@ const App = () => {
 
 	return (
 		<Container maxWidth="lg">
+			<h1>Create your Todolist</h1>
 			<FormComponent saveTodo={addTodo}/>
 			<TodoList
 				todo={todo}

@@ -51,5 +51,11 @@ module.exports = {
 			'error',
 			'always'
 		]
+	},
+	'globals': {
+		'__filename': true,
+		'__dirname': true,
+		'module': true,
+		'require': true,
 	}
 };
