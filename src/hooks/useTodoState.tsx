@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import createDate from './helper/createDate';
+import createDate from '../helper/createDate';
 
 export interface ITodoInitialState {
     value: string;
@@ -7,8 +7,9 @@ export interface ITodoInitialState {
 }
 
 const todoValue = () => {
-    const todoInitialState: ITodoInitialState[] = localStorage.todoList && Array.isArray(JSON.parse(localStorage.todoList))
-        ? JSON.parse(localStorage.todoList)
+    const savedList = localStorage.todoList;
+    const todoInitialState: ITodoInitialState[] = savedList && Array.isArray(JSON.parse(savedList))
+        ? JSON.parse(savedList)
         : [];
     const [todo, setTodo] = useState(todoInitialState);
 

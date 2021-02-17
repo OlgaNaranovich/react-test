@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				alignItems: 'center',
 				marginLeft: '16px',
 				width: '100%',
-				maxWidth: '200px'
+				maxWidth: '220px'
 			},
 
 			'& .MuiTypography-body2': {

@@ -2,8 +2,11 @@ import * as React from 'react';
 import {useState} from 'react';
 import {makeStyles, createStyles, useTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import ModalPopup from './ModalPopup';
+import {ITodoInitialState} from '../hooks/useTodoState';
 
 interface ISaveTodoList {
+	todo: ITodoInitialState[];
 	saveTodo: Function;
 }
 
@@ -20,8 +23,9 @@ const useStyles = makeStyles(() =>
 );
 
 const FormComponent = (props: ISaveTodoList) => {
-	const {saveTodo} = props;
+	const {todo, saveTodo} = props;
 	const [value, setValue] = useState('');
+	const [openModal, setOpenModal] = React.useState(false);
 	const theme = useTheme();
 	const classes = useStyles(theme);
 
@@ -35,17 +39,31 @@ const FormComponent = (props: ISaveTodoList) => {
 
 	const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (value) saveTodo(value);
-		reset();
+		const isExist = !!todo.find(item => item.value === value);
+		if (isExist) {
+			setOpenModal(true);
+		} else {
+			if (value) saveTodo(value);
+			reset();
+		}
 	}
+
 	return (
-		<form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit}>
-			<TextField
-				id="standard-basic"
-				label="Add todo"
-				value={value}
-				onChange={changeInput} />
-		</form>
+		<>
+			<form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit}>
+				<TextField
+					id="standard-basic"
+					label="Add todo"
+					value={value}
+					onChange={changeInput} />
+			</form>
+			<ModalPopup
+				open={openModal}
+				setOpen={setOpenModal}
+				currentValue={value}
+				addTodo={saveTodo}
+				resetValue={reset}/>
+		</>
 	);
 };
 

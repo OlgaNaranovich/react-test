@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useState} from 'react';
-import {ITodoInitialState} from '../../useTodoState';
+import {useEffect, useState} from 'react';
+import {ITodoInitialState} from '../../hooks/useTodoState';
 import {
     Box,
     List,
@@ -30,6 +30,10 @@ const TodoList = (props: ITodoList) => {
     const [checked, setChecked] = useState(initialChecked);
     const [editValue, setEditValue] = useState('');
     const [editStatus, setEditStatus] = useState(todo.map(() => false));
+
+    useEffect(() => {
+        setEditStatus(todo.map(() => false));
+    }, [todo]);
 
     const handleToggle = (value: number) => () => {
         const currentIndex = checked.indexOf(value);
@@ -70,7 +74,7 @@ const TodoList = (props: ITodoList) => {
             {todo.map((item, index) => {
                 const labelId = `checkbox-${item.value}`;
                 return (
-                    <Box key={item.value} className="item-wrapper">
+                    <Box key={item.value + index} className="item-wrapper">
                         <ListItem
                             className="list-item"
                             role={undefined}
