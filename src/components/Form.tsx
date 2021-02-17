@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {useState} from 'react';
 import {makeStyles, createStyles, useTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import ModalPopup from './ModalPopup';
@@ -24,7 +23,7 @@ const useStyles = makeStyles(() =>
 
 const FormComponent = (props: ISaveTodoList) => {
 	const {todo, saveTodo} = props;
-	const [value, setValue] = useState('');
+	const [value, setValue] = React.useState('');
 	const [openModal, setOpenModal] = React.useState(false);
 	const theme = useTheme();
 	const classes = useStyles(theme);
@@ -50,7 +49,7 @@ const FormComponent = (props: ISaveTodoList) => {
 
 	return (
 		<>
-			<form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit}>
+			<form className={classes.root} noValidate title="Form" autoComplete="off" onSubmit={formSubmit}>
 				<TextField
 					id="standard-basic"
 					label="Add todo"

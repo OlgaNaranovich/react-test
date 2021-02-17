@@ -36,10 +36,10 @@ const ModalPopup = (props: IModalPopup) => {
 				<p id="simple-modal-description">
 					There is a list item with the same name. Do you want to add it in anyway?
 				</p>
-				<button type="button" onClick={addValue}>
+				<button type="button" title="Add" onClick={addValue}>
 					Add
 				</button>
-				<button type="button" onClick={handleClose}>
+				<button type="button" title="Cancel" onClick={handleClose}>
 					Cancel
 				</button>
 			</div>
