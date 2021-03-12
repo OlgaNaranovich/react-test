@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useStyles, getModalStyle} from './modalStyle';
+import {useStyles} from './modalStyle';
 import Modal from '@material-ui/core/Modal';
 
 interface IModalPopup {
@@ -13,7 +13,6 @@ interface IModalPopup {
 const ModalPopup = (props: IModalPopup) => {
 	const {open, setOpen, currentValue, addTodo, resetValue} = props;
 	const classes = useStyles();
-	const [modalStyle] = React.useState(getModalStyle);
 
 	const addValue = () => {
 		setOpen(false);
@@ -26,7 +25,7 @@ const ModalPopup = (props: IModalPopup) => {
 	};
 
 	return (
-		<Modal style={modalStyle}
+		<Modal className="simple-modal-popup"
 			open={open}
 			onClose={handleClose}
 			aria-labelledby="simple-modal-title"
@@ -36,12 +35,14 @@ const ModalPopup = (props: IModalPopup) => {
 				<p id="simple-modal-description">
 					There is a list item with the same name. Do you want to add it in anyway?
 				</p>
-				<button type="button" onClick={addValue}>
-					Add
-				</button>
-				<button type="button" onClick={handleClose}>
-					Cancel
-				</button>
+				<div className="button-wrapper">
+					<button type="button" onClick={addValue}>
+						Add
+					</button>
+					<button type="button" onClick={handleClose}>
+						Cancel
+					</button>
+				</div>
 			</div>
 		</Modal>
 	);

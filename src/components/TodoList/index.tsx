@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {ITodoInitialState} from '../../hooks/useTodoState';
+import {ITodoInitialState} from '../../store/types';
 import {
     Box,
     List,

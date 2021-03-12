@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {makeStyles, createStyles, useTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import ModalPopup from './ModalPopup';
-import {ITodoInitialState} from '../hooks/useTodoState';
+import {ITodoInitialState} from '../store/types';
 
 interface ISaveTodoList {
 	todo: ITodoInitialState[];
